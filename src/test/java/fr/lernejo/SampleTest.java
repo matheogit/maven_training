@@ -28,7 +28,7 @@ class SampleTest {
     }
 
     @Test
-    void fact_of_0_or_minus_should_produce_an_exception() {
+    void fact_of_minus_1_or_minus_should_produce_an_exception() {
         int factorial = -1;
         Sample sample = new Sample();
 
@@ -41,7 +41,16 @@ class SampleTest {
         int factorial = 5; // (1)
         Sample sample = new Sample();
         int result = sample.fact(factorial);
-        Assertions.assertThat(result).as("fact of 5")
+        Assertions.assertThat(result).as("factorial of 5")
             .isEqualTo(120);
+    }
+
+    @Test
+    void fact_of_0_should_produce_1() {
+        int factorial = 0; // (1)
+        Sample sample = new Sample();
+        int result = sample.fact(factorial);
+        Assertions.assertThat(result).as("factorial of 0")
+            .isEqualTo(1);
     }
 }
